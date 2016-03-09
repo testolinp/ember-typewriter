@@ -1,13 +1,11 @@
 import Ember from 'ember';
-import layout from './template';
+import $ from 'jquery';
 
 export default Ember.Component.extend({
-  layout,
-  didInsertElement(){
-    this.set('strings', ["Typed.js is a <strong>jQuery</strong> plugin."]);
-    this.$('.' + this.get('class')).typed({
+  didInsertElement() {
+    $('.' + this.get('class')).typed({
       strings: this.get('strings'),
-      contentType: 'html' // or 'text'
+      contentType: this.get('contentType') //'html' or 'text'
     });
   }
 });
